@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Key : MonoBehaviour {
 
@@ -26,12 +27,12 @@ public class Key : MonoBehaviour {
 
 		// Prints to the console when the method is called
 		Debug.Log ("'Key.OnKeyClicked()' was called");
-       
-        door.Unlock();
-       
+
+
         // TODO: Unlock the door, display the poof effect, and remove the key from the scene
         // Use 'door' to call the Door.Unlock() method
         door.Unlock();
+    
         // Use Instantiate() to create a clone of the 'KeyPoof' prefab at this coin's position and with the 'KeyPoof' prefab's rotation
         Object.Instantiate(keyPoofPrefab, this.transform.position, keyPoofPrefab.transform.rotation);
 

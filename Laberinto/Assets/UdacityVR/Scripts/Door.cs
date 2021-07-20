@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Door : MonoBehaviour {
 
@@ -16,8 +17,8 @@ public class Door : MonoBehaviour {
     // TODO: Create variables to reference the components we need access to
     // Declare an AudioSource named 'audioSource' and get a reference to the audio source in Start()
     private AudioSource audioSource;
-    public AudioClip doorOpeningClip;
-    public AudioClip doorLockedClip;
+    public AudioClip Door_opening;
+    public AudioClip Door_Locked;
     // TODO: Create variables to track the gameplay states
     // Declare a boolean named 'locked' to track if the door has been unlocked and initialize it to 'true'
     private bool locked = true;
@@ -85,14 +86,14 @@ public class Door : MonoBehaviour {
         if (!locked)
         {
             opening = true;
-            audioSource.clip = doorOpeningClip;
+            audioSource.clip = Door_opening;
             audioSource.Play();
             EventTrigger eventTrigger = GetComponent<EventTrigger>();
             eventTrigger.enabled = false;
         }
         else
         {
-            audioSource.clip = doorLockedClip;
+            audioSource.clip = Door_Locked;
             audioSource.Play();
         }
     
@@ -112,14 +113,15 @@ public class Door : MonoBehaviour {
 	}
 
 
-	public void Unlock () {
-		/// Called from Key.OnKeyClicked(), i.e. the Key.cs script, when the 'Key' game object is clicked
-		/// - Unlocks the door
+	
+    public void Unlock()
+    {
 
-		// Prints to the console when the method is called
-		Debug.Log ("'Door.Unlock()' was called");
-
-		// TODO: Unlock the door 
-		// Unlock the door by changing the value of 'locked'
-	}
+        // Prints to the console when the method is called
+        Debug.Log("'Door.Unlock()' was called");
+        // Unlock the door by changing the value of 'locked'
+        locked = false;
+    }
 }
+
+
